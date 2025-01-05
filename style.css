@@ -1,0 +1,202 @@
+/* @media screen and (max-width:600px){ */
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     }
+     body{
+        
+     } 
+     section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* transition: height 0.5s ease-in-out,
+        translate 0.5s ease-in-out,
+        opacity 0.5s ease-in-out; */
+    /* animation: slideMe 2.5s ease-in; */
+   
+      
+     } 
+      
+     
+     @keyframes slideMe {
+
+        0%{
+            transform: skewX(53deg) translateX(-1000px);
+        opacity: -0%;
+    
+        }
+        60%{
+            transform: translateX(0px);
+        opacity: 10%;
+    
+        }
+        62%{
+            transform: skewX(0deg) translateX(30px);
+        }   
+        70%{
+            transform: skew(0deg);
+            opacity: 20%;
+    
+        }
+        80%{
+            transform: skew(0deg) translate(0) ;
+        }
+        100%{
+            transform: skew(0deg);
+        }
+    
+    }
+     .first-image{
+        /* width: 70%; */
+        height: fit-content;
+        margin: 5rem;
+        background-color: black;
+        /* color: transparent; */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        border-radius: 20px;
+     }  
+     .black-bg{
+        list-style-type: none;
+        justify-content: center;
+        color: white;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+     }
+   
+    
+     .bg-image{
+        /* background-image: url(./image/air2cashimage-removebg-preview.png); */
+        width: 80%;
+        margin-top: -2rem;
+        padding-bottom: 2rem;
+        padding: auto;
+        /* height: 10vh; */
+        /* color: white; */
+
+     }
+     .Seamlessly{
+        margin-top: -10rem;
+        width: 60%;
+        font-size: 12px;
+        padding: auto;
+        margin-bottom: 6rem;
+     }
+     .second-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+     }
+     .second-div h1{
+        font-size: 35px;
+     }
+     .input-1{
+        /* display: flex;
+        float: left; */
+     }
+     .email{
+       width:25rem;
+       padding: 1rem;
+       border-radius: 10px;
+       outline: none;
+       border: 1px solid wheat;
+       height: 7vh;
+       margin-bottom: 1rem;
+     }
+     .password{
+        background-color: rgb(245, 244, 243);
+         width:25rem;
+        padding: 1rem;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        height: 7vh;
+        margin-bottom: 1rem;
+     }
+     .Remember-div{
+        width: 60%;
+     }
+     .checkbox{
+        list-style-type: none;
+        gap: 50px;
+        width: 100%;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+     }
+     .check{
+        margin-right: .5rem;
+     }
+     .signIn{
+        margin-top: 2rem;
+         width:25rem;
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        outline: none;
+        border: none;
+        height: 7vh;
+        cursor: pointer;
+        margin-bottom: 1rem;
+     }
+     .dont-acct{
+        font-size: 15px;
+     }
+    /* } */
+
+    @media (max-width:475px) {
+        body{
+            overflow: hidden;
+            width: 100%;
+        }
+        .first-image{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Seamlessly{
+            font-size: 10px;
+            margin-top: -6.5rem;
+            padding: 0;
+            width: 85%;
+        }
+        .second-div h1{
+            font-size: 25px;
+        }
+        .second-div span{
+            font-size: 10px;
+        }
+     
+        .input-1 input{
+            width: 100%;
+        }
+        .Remember-div{
+            width: 70%;
+            /* padding-left: 1rem;
+            padding-right: 1rem; */
+        }
+        .checkbox{
+            gap: 0px;
+            width: 100%;
+        }
+       
+    }
+    @media (max-width:530px) {
+        .Seamlessly{
+          /* padding-bottom: 10px; */
+          padding-top: 25px;
+
+        }
+    }
