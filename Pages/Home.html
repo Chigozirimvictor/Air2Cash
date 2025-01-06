@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../Styles/Home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="user-info">
+        <img src="../Assets/Profile pic.jpeg" alt="Profile Image" class="profile-img">
+        <div>
+          <p class="welcome-text">Welcome back,</p>
+          <h2 class="user-name">Jacob Jones</h2>
+        </div>
+      </div>
+      <button class="notifications-btn" onclick="toggleColor()">
+        <i class="fa-solid fa-bell"></i>
+      </button>
+    </header>
+
+    <!-- Wallet Balance Section -->
+    <section class="wallet-balance">
+      <p>Wallet Balance</p>
+      <div class="balance-container">
+        <span class="balance">N10,000.00</span>
+        <button class="eye-icon"><i class="fa-solid fa-eye"></i></button>
+      </div>
+      <div class="add-money-spacing">
+        <button class="add-money-btn">+ Add money</button>
+        <a href="#" class="transaction-history-link">Transaction History ➜</a>
+      </div>
+    </section>
+
+    <!-- Actions Section -->
+    <section class="actions">
+      <div class="action">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <p>Air2Cash</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-phone"></i>
+        <p>Buy Airtime</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-wifi"></i>
+        <p>Buy Data</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-file-invoice"></i>
+        <p>Pay Bills</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-piggy-bank"></i>
+        <p>Deposit</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-wallet"></i>
+        <p>Withdraw</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-chart-line"></i>
+        <p>Rates</p>
+      </div>
+      <div class="action">
+        <i class="fa-solid fa-clock"></i>
+        <p>History</p>
+      </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section class="rewards">
+      <div class="rewards-content">
+        <h2>Unlock Exclusive Rewards</h2>
+        <p>Earn more with every transaction</p>
+        <button class="get-rewards-btn">Get Started</button>
+      </div>
+    </section>
+
+    <!-- Recent Transactions Section -->
+    <section class="recent-transactions">
+      <div class="transaction">
+        <div class="transaction-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="transaction-content">
+          <div class="transaction-details">
+            <p class="transaction-title">Airtime to Cash Conversion</p>
+          </div>
+          <div class="transaction-info">
+            <p class="date">Dec 30th, 00:00:00</p>
+            <span class="amount">+N500.00</span>
+          </div>
+        </div>
+      </div>
+    
+      <div class="transaction">
+        <div class="transaction-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="transaction-content">
+          <div class="transaction-details">
+            <p class="transaction-title">Airtime to Cash Conversion</p>
+          </div>
+          <div class="transaction-info">
+            <p class="date">Dec 30th, 00:00:00</p>
+            <span class="amount">+N500.00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <nav class="footer-nav">
+        <a href="#" class="footer-link active">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="footer-link">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Rewards</span>
+        </a>
+        <a href="#" class="footer-link">
+          <i class="fa-solid fa-wallet"></i>
+          <span>Convert</span>
+        </a>
+        
+        <a href="#" class="footer-link">
+          <i class="fa-solid fa-clock"></i>
+          <span>History</span>
+        </a>
+        <a href="#" class="footer-link">
+          <i class="fa-solid fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+    </footer>
+    
+  </div>
+
+  <script src="../Scripts/Home.js"></script>
+</body>
+</html>

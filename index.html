@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./Styles/Home.css">
 </head>
 <body>
-    
+  <div class="landing-page">
+    <header class="header">
+      <h1>Welcome to Our Platform</h1>
+      <p>Manage your transactions effortlessly with our dashboard.</p>
+    </header>
+
+    <main class="main-content">
+      <button class="go-to-dashboard" onclick="navigateToHomePage()">Go to Home Page</button>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function navigateToHomePage() {
+      // Redirect to the Home page
+      window.location.href = './Pages/Home.html';
+    }
+  </script>
 </body>
 </html>
