@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Signup.css">
+    <title>Air2Cash</title>
+</head>
+<body>
+    <div class="main-body">
+        <div class="up-text">
+            <h2>Create Your Account</h2>
+            <p>Sign up to unlock instant airtime-to-cash conversations</p>
+        </div>
+        
+         <form action="">
+             <div class="pin-wrap">
+                <input type="text" placeholder="Full Name" class="pin-code" required>
+                <input type="num" placeholder=" Mobile No." class="pin-code" required>
+                <input type="email" placeholder="E-mail Address" class="pin-code" required>
+                <input type="password" placeholder="Create Password" class="pin-code Create-pw">
+                <p>Must Contain letter(s), number(s), and specail character(s)</p>
+                <input type="password" placeholder="Confirm Password" class="pin-code Create-pw">
+                <input type="text" placeholder="Referral code (Optional)" class="pin-code">
+
+             </div>
+             <div class="checkbox-privacy">
+                <input type="checkbox" required> <p>I have read and I agree to Air2Cash  <a href="./terms&conditions.html"><span>Terms & Conditions</span></a> and  <a href="./privacy.html"><span>Privacy Policy</span></a></p>
+                </div>
+       
+                <div class="create-btn">
+                   <button type="text" class="btn-button">Create Account</button>
+       
+         </form>
+         <br>
+         <br>
+         <div class="last">
+         <span class="no-acct">Dont have an Air2Cash account yet?</span>
+         <a href="./start.html"><h5 class="h5">Sign In Instead</h5></a>
+         </div>
+    </div>
+   
+
+    <script>
+         const childDiv = document.querySelector('.main-body');
+        console.log("its working")
+
+        const handleScroll = () => {
+        const rect = childDiv.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+             childDiv.classList.add('in-view');
+               }
+            };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // To check initial state
+
+    </script>
+</body>
+</html>

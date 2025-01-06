@@ -6,8 +6,16 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      }
      body{
+    /* background: #252839; */
+
+     }
+
+     a{
+        text-decoration: none;
         
-     } 
+        /* list-style-type: none; */
+     }
+     
      section{
         display: flex;
         flex-direction: column;
@@ -57,13 +65,23 @@
         background-color: black;
         /* color: transparent; */
         color: white;
+        box-shadow: 10px 10px     rgb(149, 147, 147);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         list-style-type: none;
         border-radius: 20px;
-     }  
+        transform: translateY( -180px);
+        opacity: 0;
+        transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+
+     } 
+     
+.first-image.in-view{
+    transform: translateX(0);
+    opacity: 1;
+} 
      .black-bg{
         list-style-type: none;
         justify-content: center;
@@ -97,14 +115,20 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 3rem;
+        transform: translateX( 100px);
+        opacity: 0;
+        transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+   
      }
+   
+.second-div.in-view{
+ transform: translateX(0);
+ opacity: 1;
+} 
      .second-div h1{
         font-size: 35px;
      }
-     .input-1{
-        /* display: flex;
-        float: left; */
-     }
+
      .email{
        width:25rem;
        padding: 1rem;
@@ -138,9 +162,12 @@
      .check{
         margin-right: .5rem;
      }
+     .forgot{
+        color: #01fe87;
+     }
      .signIn{
         margin-top: 2rem;
-         width:25rem;
+         width:15rem;
         padding: 1rem;
         border-radius: 10px;
         background-color: black;
@@ -149,16 +176,21 @@
         border: none;
         height: 7vh;
         cursor: pointer;
-        margin-bottom: 1rem;
+        /* margin-bottom: 10px; */
      }
      .dont-acct{
         font-size: 15px;
+     }
+    .h5{
+        color: #01fe87;
+        text-decoration: none;
+        
      }
     /* } */
 
     @media (max-width:475px) {
         body{
-            overflow: hidden;
+            /* overflow: hidden; */
             width: 100%;
         }
         .first-image{

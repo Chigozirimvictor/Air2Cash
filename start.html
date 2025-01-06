@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./start.css">
     <title>Air2Cash</title>
 </head>
 <body>
@@ -34,15 +34,15 @@
                 <div class="Remember-div">
                     <ul class="checkbox">
                         <li><input type="checkbox" class="check">  Remember me </li>
-                       <a href="./fgpassword.html"> <li> Forgot password?</li></a>
+                       <a href="./fgpassword.html"> <li class="forgot"> Forgot password?</li></a>
                     </ul>
                 </div>
                 <div class="input-1">
-                    <input type="submit" value="Sign In" class="signIn">
+                    <button type="submit" value="Sign In" class="signIn">Sign In/Log In</button>
                     </div>
                     <br><br>
                     <span class="dont-acct">Dont have an Air2Cash account yet?</span>
-                    <h5>Sign Up Instead</h5>
+                    <a href="./Signup.html"><h5 class="h5">Sign Up Instead</h5></a>
 
         </div>
 
@@ -50,6 +50,37 @@
 
         </div>
        </section>
- <script src="./main.js"></script>      
+ <script >
+                  const childDiv = document.querySelector('.first-image');
+                  console.log("its working")
+
+          const handleScroll = () => {
+            const rect = childDiv.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              childDiv.classList.add('in-view');
+            }
+          };
+
+          window.addEventListener('scroll', handleScroll);
+          handleScroll(); // To check initial state
+
+        //   SECOND Animation
+
+
+        const secondDiv = document.querySelector('.second-div');
+                  console.log("its working")
+
+          const animateScroll = () => {
+            const rect = childDiv.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              secondDiv.classList.add('in-view');
+            }
+          };
+
+          window.addEventListener('scroll', animateScroll);
+          animateScroll(); // To check initial state
+
+
+ </script>      
 </body>
 </html>
