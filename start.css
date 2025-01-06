@@ -6,8 +6,10 @@
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
      }
      body{
-        
-     } 
+    background: #252839;
+
+     }
+     
      section{
         display: flex;
         flex-direction: column;
@@ -16,7 +18,7 @@
         /* transition: height 0.5s ease-in-out,
         translate 0.5s ease-in-out,
         opacity 0.5s ease-in-out; */
-    /* animation: slideMe 2.5s ease-in; */
+    animation: slideMe 2.5s ease-in;
    
       
      } 
@@ -158,7 +160,7 @@
 
     @media (max-width:475px) {
         body{
-            overflow: hidden;
+            /* overflow: hidden; */
             width: 100%;
         }
         .first-image{
