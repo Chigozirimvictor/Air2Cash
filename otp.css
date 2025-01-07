@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    list-style-type: none;
+    text-decoration: none;
+}
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background: #252839; */
+    justify-content: center;
+    padding: 15px;
+}
+.OTP-form{
+    width: 100%;
+    max-width: 550px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 35px ;
+    position: relative;
+    z-index: 999;
+       
+}
+/* .fg-form{
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+
+} */
+.fg-form.in-view{
+    transform: translateX(0);
+    opacity: 1;
+}
+.otpheader-form{
+    text-align: left;
+    margin-bottom: 35px;
+
+}
+
+.otpheader-form h4{
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.otpheader-form p{
+    font-size: 12px;
+    color: #040404;
+}
+.otp-pin-wrap{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.otp-pin-wrap .otp-input{
+    width: 100%;
+    min-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #040404;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+.otp-pin-wrap .otp-input:focus{
+    border: 1px solid #7667FF;
+}
+.otp-pin-wrap .otp-input:nth-child(n+2){
+    margin-left: 15px;
+}
+
+.otp-pin-wrap .otp-input-code{
+    width: 100%;
+    min-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #040404;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+.otp-pin-wrap .otp-input-code:focus{
+    border: 1px solid #7667FF;
+}
+.otp-pin-wrap .otp-input-code:nth-child(n+2){
+    margin-left: 15px;
+}
+.resend{
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.btn-wrap button{
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #040404;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 65px;
+}
+
+@media (max-width:475px) {
+    .otp-pin-wrap .otp-input-code:nth-child(n+2){
+        margin-left: 5px;
+    }
+    .otp-pin-wrap .otp-input-code:nth-child(n+2){
+        margin-left: 5px;
+    }
+}
