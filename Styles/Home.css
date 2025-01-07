@@ -26,6 +26,15 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+
+}
+
+.header.in-view{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .user-info {
@@ -74,7 +83,14 @@ body {
   color: var(--secondary-color);
   padding: 20px;
   border-radius: 10px;
+  transform: translateX( 100px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
   margin-bottom: 20px;
+}
+.wallet-balance.in-view{
+  transform: translateX(0);
+  opacity: 1;
 }
 .wallet-balance p {
   color: var(--icon-color);
@@ -135,6 +151,17 @@ body {
   padding: 15px;
   border-radius: 10px;
 }
+.actions{
+  transform: translateX( -100px);
+  opacity: 0;
+  transition: transform 2s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+
+}
+
+.actions.in-view{
+transform: translateX(0);
+opacity: 1;
+}
 .action i {
   background: var(--icon-color);
   padding: 20px 20px;
@@ -150,6 +177,14 @@ body {
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 20px;
+  transform: translateX( -100px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+  margin-bottom: 20px;
+}
+.rewards.in-view{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .rewards-content h2,
@@ -171,6 +206,15 @@ body {
 /* Recent Transactions */
 .recent-transactions {
   margin: 20px 0;
+
+transform: translateY( 100px);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
+  margin-bottom: 20px;
+}
+.recent-transactions.in-view{
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .transaction {

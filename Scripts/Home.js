@@ -23,4 +23,84 @@ function toggleColor() {
   }, 500);
 }
 
+
+// Animation 1
+
+const childDiv = document.querySelector('.header');
+console.log("its working")
+
+const handleScroll = () => {
+const rect = childDiv.getBoundingClientRect();
+if (rect.top < window.innerHeight && rect.bottom >= 0) {
+childDiv.classList.add('in-view');
+}
+};
+
+window.addEventListener('scroll', handleScroll);
+handleScroll(); // To check initial state
+
+
+// Animation2
+   const secondDiv = document.querySelector('.wallet-balance');
+   console.log("its working")
+
+   const secondScroll = () => {
+   const rect =secondDiv.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+       secondDiv.classList.add('in-view');
+            }
+           };
+
+        window.addEventListener('scroll', secondScroll);
+          secondScroll(); // To check initial state
+   
+          // Animation3
+
+
+
+          const thirdDiv = document.querySelector('.actions');
+   console.log("its working")
+
+   const thirdScroll = () => {
+   const rect =thirdDiv.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+       thirdDiv.classList.add('in-view');
+            }
+           };
+
+        window.addEventListener('scroll', thirdScroll);
+          thirdScroll(); // To check initial state
+     
+
+          // Forth Animation
+  
+
+          const fourthDiv = document.querySelector('.rewards');
+          console.log("its working")
+       
+          const fourthScroll = () => {
+          const rect =fourthDiv.getBoundingClientRect();
+                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              fourthDiv.classList.add('in-view');
+                   }
+                  };
+       
+               window.addEventListener('scroll', fourthScroll);
+                 fourthScroll(); // To check initial state
+          
+
+                 const fifthDiv = document.querySelector('.recent-transactions');
+          console.log("its working")
+       
+          const fifthScroll = () => {
+          const rect =fifthDiv.getBoundingClientRect();
+                 if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              fifthDiv.classList.add('in-view');
+                   }
+                  };
+       
+               window.addEventListener('scroll', fifthScroll);
+                 fifthScroll(); // To check initial state
+          
+
   
