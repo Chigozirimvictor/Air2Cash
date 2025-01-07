@@ -207,7 +207,7 @@ header {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--ascent-color);
+    color: #6C757D;
     font-size: 12px;
     transition: color 0.3s ease-in-out;
   }
@@ -225,31 +225,6 @@ header {
   .footer-link span {
     font-size: 10px;
   }
-  
-
-  /* footer {
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-    padding: 0.5rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .footer-nav {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .footer-nav a {
-    text-align: center;
-    color: #333;
-    font-size: 0.8rem;
-    text-decoration: none;
-  }
-  
-  .footer-nav a.active {
-    color: #ffd700;
-  } */
   
   
   /* Responsive Styles */
