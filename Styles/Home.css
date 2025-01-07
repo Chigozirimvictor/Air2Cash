@@ -57,6 +57,7 @@ body {
   font-size: 20px;
   border-radius: 50%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  /* color: white; */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -64,6 +65,7 @@ body {
 .notifications-btn:hover, 
 .notifications-btn.clicked {
   background-color: var(--primary-color);
+  color:  white;
 }
 
 /* Wallet Balance */

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./otp.css">
+    <title>Air2Cash</title>
+</head>
+<body>
+    <div class="OTP-form">
+        <div class="fg-form">
+            <div class="otpheader-form">
+                <h4>Input your OTP</h4>
+                <p>Please enter the code we sent to +2349033991947 </p>
+            </div>
+
+            <form action="javascript:void(0)">
+                <div class="otp-pin-wrap">
+                    <input type="text" class="otp-input" >
+                    <input type="text" class="otp-input" >
+                    <input type="text" class="otp-input" >
+                    <input type="text" class="otp-input" >
+                    <input type="text" class="otp-input" >
+                    <input type="text" class="otp-input" >
+                </div>
+                <div class="resend"> Resend in 60s</div>
+
+                <div class="otpheader-form">
+            
+                    <p>Please enter the code that was sent as an email to ja*****62@gmail.com </p>
+                </div>
+    
+                <form action="javascript:void(0)">
+                    <div class="otp-pin-wrap">
+                        <input type="text" class="otp-input-code" >
+                        <input type="text" class="otp-input-code" >
+                        <input type="text" class="otp-input-code" >
+                        <input type="text" class="otp-input-code" >
+                        <input type="text" class="otp-input-code" >
+                        <input type="text" class="otp-input-code" >
+                    </div>
+                    <div class="resend"> Resend in 60s</div>
+                <div class="btn-wrap">
+
+                    <a href="#"><button type="submit">Verify Account</button></a>
+
+                </div>
+            </form>
+        </div>
+
+        <script>
+            const inputElement = [...document.querySelectorAll('input.otp-input')];
+inputElement.forEach((elem,index)=>{
+    elem.addEventListener('keydown', (e)=>{
+        if(e.keyCode === 8 && e.target.value === ''){
+            inputElement[Math.max(0, index - 1)].focus()
+        }
+    });
+
+    elem.addEventListener('input', (e)=>{
+        const [first, ...rest] = e.target.value;
+        e.target.value = first ?? ''
+        const lastInputBox = index === inputElement.length - 1;
+        const insertedCotent = first !== undefined;
+        if(insertedCotent && !lastInputBox){
+            inputElement[index + 1].focus();
+            inputElement[index + 1].value = rest.join('')
+            inputElement[index + 1].dispatchEvent(new Event('input'))
+        }
+    })
+})
+
+
+// Second OTP
+
+
+const inputCode = [...document.querySelectorAll('input.otp-input-code')];
+inputCode.forEach((elem,index)=>{
+    elem.addEventListener('keydown', (e)=>{
+        if(e.keyCode === 8 && e.target.value === ''){
+            inputCode[Math.max(0, index - 1)].focus()
+        }
+    });
+
+    elem.addEventListener('input', (e)=>{
+        const [first, ...rest] = e.target.value;
+        e.target.value = first ?? ''
+        const lastInputBox = index === inputCode.length - 1;
+        const insertedCotent = first !== undefined;
+        if(insertedCotent && !lastInputBox){
+            inputCode[index + 1].focus();
+            inputCode[index + 1].value = rest.join('')
+            inputCode[index + 1].dispatchEvent(new Event('input'))
+        }
+    })
+})
+        </script>
+</body>
+</html>
