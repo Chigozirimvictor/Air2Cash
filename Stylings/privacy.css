@@ -1,3 +1,7 @@
+*{
+   font-family: 'Poppins', sans-serif;
+
+}
 @media (max-width:475px) {
     p{
         width: 100%;
