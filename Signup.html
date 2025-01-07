@@ -1,61 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./image/air2cashlogo.jpg">
-    <link rel="stylesheet" href="./Stylings/Signup.css">
-    <title>Air2Cash</title>
-</head>
-<body>
-    <div class="main-body">
-        <div class="up-text">
-            <h2>Create Your Account</h2>
-            <p>Sign up to unlock instant airtime-to-cash conversations</p>
-        </div>
-        
-         <form action="">
-             <div class="pin-wrap">
-                <input type="text" placeholder="Full Name" class="pin-code" required>
-                <input type="num" placeholder=" Mobile No." class="pin-code" required>
-                <input type="email" placeholder="E-mail Address" class="pin-code" required>
-                <input type="password" placeholder="Create Password" class="pin-code Create-pw">
-                <p>Must Contain letter(s), number(s), and specail character(s)</p>
-                <input type="password" placeholder="Confirm Password" class="pin-code Create-pw">
-                <input type="text" placeholder="Referral code (Optional)" class="pin-code">
 
-             </div>
-             <div class="checkbox-privacy">
-                <input type="checkbox" required> <p>I have read and I agree to Air2Cash  <a href="./terms&conditions.html"><span>Terms & Conditions</span></a> and  <a href="./privacy.html"><span>Privacy Policy</span></a></p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./image/air2cashlogo.jpg">
+        <link rel="stylesheet" href="Stylings/Signup.css">
+        <title>Air2Cash</title>
+        <link rel="stylesheet" href="Scripts/sweetalert2/sweetalert2.min.css">
+    </head>
+
+    <body>
+        <div class="main-body">
+            <div class="up-text">
+                <h2>Create Your Account</h2>
+                <p>Sign up to unlock instant airtime-to-cash conversations</p>
+            </div>
+
+            <form id="register">
+                <div id="msg1"></div> <!-- Error message container -->
+                <div class="pin-wrap">
+                    <input type="text" id="username" placeholder="Full Name"
+                        name="username" class="pin-code" required>
+                    <input type="number" id="phoneNumber"
+                        placeholder="Mobile No." name="phoneNumber"
+                        class="pin-code" required>
+                    <input type="email" id="email" placeholder="E-mail Address"
+                        name="email" class="pin-code" required>
+                    <input type="password" id="first" name="password"
+                        placeholder="Create Password"
+                        class="pin-code Create-pw first" required>
+                    <p>Must contain letters, numbers, and special
+                        characters.</p>
+                    <input type="password" id="confrim"
+                        placeholder="Confirm Password"
+                        class="pin-code Create-pw confrim" required>
+                    <input type="password" id="pin" placeholder="Create Pin"
+                        name="pin" class="pin-code Create-pw pin" required>
+                    <input type="text" placeholder="Referral Code (Optional)"
+                        class="pin-code">
                 </div>
-       
-                <div class="create-btn">
-                   <button type="text" class="btn-button">Create Account</button>
-       
-         </form>
-         <br>
-         <br>
-         <div class="last">
-         <span class="no-acct">Dont have an Air2Cash account yet?</span>
-         <a href="./start.html"><h5 class="h5">Sign In Instead</h5></a>
-         </div>
-    </div>
-   
 
-    <script>
-         const childDiv = document.querySelector('.main-body');
+                <div class="checkbox-privacy">
+                    <input type="checkbox" required>
+                    <p>I have read and agree to Air2Cash <a
+                            href="./terms&conditions.html"><span>Terms &
+                                Conditions</span></a> and
+                        <a href="./privacy.html"><span>Privacy
+                                Policy</span></a></p>
+                </div>
+
+                <div class="create-btn">
+                    <button type="submit" class="btn-button">Create
+                        Account</button>
+                </div>
+            </form>
+
+            <br><br>
+            <div class="last">
+                <span class="no-acct">Already have an Air2Cash account?</span>
+                <a href="./start.html">
+                    <h5 class="h5">Sign In Instead</h5>
+                </a>
+            </div>
+        </div>
+        <script src="Scripts/jquery/jquery.min.js"></script>
+        <script src="Scripts/sweetalert2/sweetalert2.all.min.js"></script>
+        <script>
+        const childDiv = document.querySelector('.main-body');
         console.log("its working")
 
         const handleScroll = () => {
-        const rect = childDiv.getBoundingClientRect();
+            const rect = childDiv.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom >= 0) {
-             childDiv.classList.add('in-view');
-               }
-            };
+                childDiv.classList.add('in-view');
+            }
+        };
 
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // To check initial state
 
+        $('#register').on('submit', function (event) {
+            event.preventDefault();
+
+            // Get input values
+            const username = document.getElementById('username').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const email = document.getElementById('email').value;
+            const firstPassword = document.getElementById('first').value;
+            const confirmPassword = document.getElementById('confrim').value;
+            const pin = document.getElementById('pin').value;
+
+            // Check if passwords match
+            if (confirmPassword === firstPassword) {
+                $.ajax({
+                    type: 'POST',
+                    url: "https://testing1-xpjd.onrender.com/api/auth/register",
+                    data: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: firstPassword,
+                        phoneNumber: phoneNumber,
+                        pin: pin,
+                    }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $("#register")[0].reset(); // Reset the form
+
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Registration complete",
+                            });
+
+                            // Store token in sessionStorage
+                            sessionStorage.setItem('token', response.data.token);
+                            sessionStorage.setItem('user_id', response.data.id);
+
+                            console.log("Token:", sessionStorage.getItem('token'));
+                            console.log("user_id", sessionStorage.getItem('user_id'));
+                            window.location.href = "Pages/Home.html";
+                        } else {
+                            $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
+                        }
+                    },
+                    error: function () {
+                        $("#msg1").html('<span class="alert alert-danger">Unable to process your request at this time</span>');
+                    },
+                });
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Password Mismatch",
+                    text: "The passwords you entered do not match. Please try again.",
+                });
+            }
+        });
     </script>
-</body>
+    </body>
+
 </html>
