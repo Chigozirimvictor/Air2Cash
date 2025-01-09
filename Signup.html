@@ -126,10 +126,16 @@
                             });
                         } else {
                             $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
+                            setTimeout(function() {
+                            $("#msg1").html('');
+                        }, 5000);
                         }
                     },
                     error: function () {
                         $("#msg1").html('<span class="alert alert-danger">Unable to process your request at this time</span>');
+                        setTimeout(function() {
+                            $("#msg1").html('');
+                        }, 5000);
                     },
                 });
             } else {
