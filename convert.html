@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="./image/air2cashlogo.jpg">
+    <link rel="stylesheet" href="./Stylings/convert.css">
+    <title>Air2Cash</title>
+</head>
+<body>
+    <div class="icon">
+        <ul class="icon-logo">
+            <li class="mtn" onclick="mtn()" ><input type="#" class="logo" value="MTN"><img src="./image/128px-New-mtn-logo.jpg" alt=""></li>
+            <li class="glo" onclick="glo()"><input type="text" class="logo glo" value="GLO"><img src="./image/gloimg.png" alt=""></li>
+            <li class="airtel" onclick="airtel()"><input type="text" class="logo airtel" value="AIRTEL "><img src="./image/airtel.jpg" alt=""></li>
+        </ul>
+
+        <form action="" class="form-input">
+            <input type="number" maxlength="11" placeholder="phoneNumber">
+            <input type="text" placeholder="Amount">
+        </form>
+        <button type="submit">Convert</button>
+
+
+
+        <footer class="footer">
+            <nav class="footer-nav">
+              <a href="./Pages/Home.html" class="footer-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+              </a>
+              <a href="./Pages/Reward.html" class="footer-link">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Rewards</span>
+              </a>
+              <a href="./convert.html" class="footer-link">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Convert</span>
+              </a>
+              
+              <a href="./Pages/History.html" class="footer-link">
+                <i class="fa-solid fa-clock"></i>
+                <span>History</span>
+              </a>
+              <a href="#" class="footer-link active">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+              </a>
+              <a href="../start.html" onclick="logout()" style="color: red;" class="footer-link signout">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span>Sign Out</span>
+              </a>
+            </nav>
+          </footer>
+    
+    </div>
+
+   <script src="./Scripts/convert.js"></script>
+   <script src="./Scripts/sweetalert2/sweetalert2.all.min.js"></script>
+   <script src="./Scripts/jquery/jquery.js"></script>
+     <script >
+        
+        // To enable the footer links to change color when clicked
+document.querySelectorAll('.footer-link').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    document.querySelectorAll('.footer-link').forEach((el) => {
+      el.classList.remove('active');
+    });
+    link.classList.add('active');
+  });
+});
+
+     </script>
+
+</body>
+</html>
