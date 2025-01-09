@@ -113,15 +113,17 @@
                                 icon: "success",
                                 title: "Success",
                                 text: "Registration complete",
-                            });
+                            }).then(function() {
 
                             // Store token in sessionStorage
-                            sessionStorage.setItem('token', response.data.token);
-                            sessionStorage.setItem('user_id', response.data.id);
+                            // sessionStorage.setItem('token', response.data.token);
+                            // sessionStorage.setItem('user_id', response.data.id);
 
-                            console.log("Token:", sessionStorage.getItem('token'));
-                            console.log("user_id", sessionStorage.getItem('user_id'));
-                            window.location.href = "Pages/Home.html";
+                            // console.log("Token:", sessionStorage.getItem('token'));
+                            // console.log("user_id", sessionStorage.getItem('user_id'));
+
+                            window.location.href = "start.html";
+                            });
                         } else {
                             $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
                         }
