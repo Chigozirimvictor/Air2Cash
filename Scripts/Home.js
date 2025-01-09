@@ -4,6 +4,39 @@ document.querySelector('.eye-icon').addEventListener('click', () => {
   balance.textContent = balance.textContent === 'N10,000.00' ? '••••••' : 'N10,000.00';
 });
 
+// eye
+
+function eye() {
+  const token = sessionStorage.getItem("token");
+  const id = sessionStorage.getItem("user_id");
+
+  if (!token || !id) {
+      console.error("Token or user ID is missing");
+      return;
+  }
+
+  $.ajax({
+      type: "GET",
+      url: "/your-account-balance-url",
+      headers: {
+          'Authorization': `Bearer ${token}`  
+      },
+      data: {
+          'user_id': id
+      },
+      success: function (data) {
+          if (data.status === 'success') {
+              $("#account_balance").html(data.amount);
+          } else {
+              console.error("Unexpected response:", data);
+          }
+      },
+      error: function (xhr, status, error) {
+          console.error("AJAX Error:", status, error);
+      }
+  });
+};
+
 // To enable the footer links to change color when clicked
 document.querySelectorAll('.footer-link').forEach((link) => {
   link.addEventListener('click', (e) => {
@@ -89,6 +122,8 @@ handleScroll(); // To check initial state
                  fourthScroll(); // To check initial state
           
 
+
+                //  Fitfth Animation
                  const fifthDiv = document.querySelector('.recent-transactions');
           console.log("its working")
        
@@ -103,4 +138,29 @@ handleScroll(); // To check initial state
                  fifthScroll(); // To check initial state
           
 
-  
+                //  logout function
+
+                
+
+                function logout() {
+                  const token = sessionStorage.getItem("token");
+                  const id = sessionStorage.getItem("user_id");
+                  console.log("it logged out")
+                
+                  $.ajax({
+                    type: "GET",
+                    url: "/your", // replace wi=th your actual logout URL
+                    headers: {
+                      'Authorization': `Bearer ${token}` // use backticks for template literals
+                    },
+                    data: {
+                      'user_id': id
+                    },
+                    success: function(data) {
+                      if (data.status === 'success') { // use triple equals for strict equality check
+                        sessionStorage.clear();
+                        checkSession();
+                      }
+                    }
+                  });
+                }

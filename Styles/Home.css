@@ -6,6 +6,12 @@
   --icon-color: #F6F6F6;
   --font-family: 'Poppins', sans-serif;
 }
+a{
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  color: black;
+}
 
 body {
   margin: 0;

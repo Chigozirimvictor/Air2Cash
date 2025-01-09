@@ -6,7 +6,8 @@
   <title>Home Page</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../Styles/Home.css">
-  <link rel="icon" href="../image/air2cashlogo.jpg">
+        <!-- <link rel="stylesheet" href="Scripts/sweetalert2/sweetalert2.min.css"> -->
+        <link rel="icon" href="../image/air2cashlogo.jpg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
@@ -31,7 +32,7 @@
       <p>Wallet Balance</p>
       <div class="balance-container">
         <span class="balance">N10,000.00</span>
-        <button class="eye-icon"><i class="fa-solid fa-eye"></i></button>
+        <button class="eye-icon" id="show" onclick="eye()"><i class="fa-solid fa-eye" ></i></button>
       </div>
       <div class="add-money-spacing">
         <button class="add-money-btn">+ Add money</button>
@@ -42,8 +43,8 @@
     <!-- Actions Section -->
     <section class="actions">
       <div class="action">
-        <i class="fa-solid fa-money-bill-wave"></i>
-        <p>Air2Cash</p>
+       <a href="../convert.html"> <i class="fa-solid fa-money-bill-wave"></i>
+        <p>Air2Cash</p> </a>
       </div>
       <div class="action">
         <i class="fa-solid fa-phone"></i>
@@ -70,8 +71,8 @@
         <p>Rates</p>
       </div>
       <div class="action">
-        <i class="fa-solid fa-clock"></i>
-        <p>History</p>
+       <a href="./History.html"> <i class="fa-solid fa-clock"></i>
+        <p>History</p></a>
       </div>
     </section>
 
@@ -129,7 +130,7 @@
           <i class="fa-solid fa-trophy"></i>
           <span>Rewards</span>
         </a>
-        <a href="#" class="footer-link">
+        <a href="../convert.html" class="footer-link">
           <i class="fa-solid fa-wallet"></i>
           <span>Convert</span>
         </a>
@@ -142,16 +143,21 @@
           <i class="fa-solid fa-user"></i>
           <span>Profile</span>
         </a> 
-        <a href="../start.html" style="color: red;" class="footer-link signout">
+        <a href="../start.html" onclick="logout()" style="color: red;" class="footer-link signout">
           <i class="fa fa-sign-out" aria-hidden="true"></i>
-          <span>Sign Out</span>
+          <span >Sign Out</span>
         </a>
       </nav>
     </footer>
     
   </div>
 
-  <script src="../Scripts/Home.js"></script>
-  <script src="../Scripts/session.js"></script>
+
+  <script src="../Scripts/jquery/jquery.js"></script>
+  <script src="../Scripts/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="../Scripts/Home.js">
+   
+  </script>
+  <!-- <script src="../Scripts/session.js"></script> -->
 </body>
 </html>
