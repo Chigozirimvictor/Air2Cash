@@ -35,7 +35,7 @@ document.getElementById('terms-conditions').addEventListener('click', function (
 
 // Logout
 document.getElementById('log-out').addEventListener('click', function () {
-  alert('logged out successfully.');
+  alert('Are you sure you want to log out?');
 });
 
 
