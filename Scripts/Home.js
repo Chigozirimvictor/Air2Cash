@@ -1,8 +1,8 @@
 // To enable the amount to open and close when the eye icon is clicked
-document.querySelector('.eye-icon').addEventListener('click', () => {
-  const balance = document.querySelector('.balance');
-  balance.textContent = balance.textContent === 'N10,000.00' ? '••••••' : 'N10,000.00';
-});
+// document.querySelector('.eye-icon').addEventListener('click', () => {
+//   const balance = document.querySelector('.balance');
+//   balance.textContent = balance.textContent === 'N10,000.00' ? '••••••' : 'N10,000.00';
+// });
 
 // eye
 
@@ -17,7 +17,7 @@ function eye() {
 
   $.ajax({
       type: "GET",
-      url: "/your-account-balance-url",
+      url: "https://testing1-xpjd.onrender.com/api/users/accountbalance",
       headers: {
           'Authorization': `Bearer ${token}`  
       },

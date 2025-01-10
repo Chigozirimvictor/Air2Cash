@@ -1,88 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="./image/air2cashlogo.jpg">
-    <link rel="stylesheet" href="./Stylings/start.css">
-    <title>Air2Cash</title>
+  <link rel="stylesheet" href="./Stylings/start.css">
+  <title>Air2Cash</title>
 </head>
+
 <body>
-       <section class="section">
-        <div class="inner-body">
-        <div class="first-image">
-            <ul class="black-bg">
-                <li class="bg-image">
-                    <img src="./image/air2cashimage-removebg-preview.png" alt="" width="100%" >
-                </li>
-                <li class="Seamlessly">Seamlessly Convert your unused airtime into real cash-fast, secure, and hassle-free.</li>
+  <section class="section">
+    <div class="inner-body">
+      <div class="first-image">
+        <ul class="black-bg">
+          <li class="bg-image">
+            <img src="./image/air2cashimage-removebg-preview.png" alt width="100%">
+          </li>
+          <li class="Seamlessly">Seamlessly Convert your unused airtime into
+            real cash-fast, secure, and hassle-free.</li>
+        </ul>
+      </div>
+
+      <div class="second-div">
+        <form id="login">
+          <h1>Start Your Journey</h1>
+          <span>Sign in to Convert your Airtime to Cash</span>
+          <br>
+          <div class="input-1">
+            <input type="text" placeholder="Enter your Mobile No./Email" class="email" id="email">
+          </div>
+          <div class="input-1">
+            <input type="password" placeholder="Input password" class="password" id="Password">
+          </div>
+
+          <div class="Remember-div">
+            <ul class="checkbox">
+              <li><input type="checkbox" class="check"> Remember me </li>
+              <a href="./fgpassword.html">
+                <li class="forgot"> Forgot
+                  password?</li>
+              </a>
             </ul>
-        </div> 
+          </div>
+          <div class="input-1">
+            <button type="submit" value="Sign In" class="signIn">Sign In/Log
+              In</button>
+          </div>
+          <br><br>
+          <span class="dont-acct">Dont have an Air2Cash account yet?</span>
+          <a href="./Signup.html">
+            <h5 class="h5">Sign Up Instead</h5>
+          </a>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <script src="Scripts/jquery/jquery.min.js"></script>
+  <script src="Scripts/sweetalert2/sweetalert2.all.min.js"></script>
+  <script>
+    const childDiv = document.querySelector('.first-image');
+    console.log("its working")
+
+    const handleScroll = () => {
+      const rect = childDiv.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        childDiv.classList.add('in-view');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // To check initial state
+
+    //   SECOND Animation
 
 
+    const secondDiv = document.querySelector('.second-div');
+    console.log("its working")
 
-        <div class="second-div">
-            <h1>Start Your Journey</h1>
-            <span>Sign in to Convert your Airtime to Cash</span>
-            <br>
-            <div class="input-1">
-            <input type="text" placeholder="Enter your Mobile No./Email" class="email">
-            </div>
-            <div class="input-1">
-                <input type="password" placeholder="Input password" class="password">
-                </div>
+    const animateScroll = () => {
+      const rect = childDiv.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        secondDiv.classList.add('in-view');
+      }
+    };
 
-                <div class="Remember-div">
-                    <ul class="checkbox">
-                        <li><input type="checkbox" class="check">  Remember me </li>
-                       <a href="./fgpassword.html"> <li class="forgot"> Forgot password?</li></a>
-                    </ul>
-                </div>
-                <div class="input-1">
-                    <a href="./otp.html"><button type="submit" value="Sign In" class="signIn">Sign In/Log In</button></a>
-                    </div>
-                    <br><br>
-                    <span class="dont-acct">Dont have an Air2Cash account yet?</span>
-                    <a href="./Signup.html"><h5 class="h5">Sign Up Instead</h5></a>
+    window.addEventListener('scroll', animateScroll);
+    animateScroll(); // To check initial state
 
-        </div>
+    $('#login').on('submit', function (event) {
+      event.preventDefault();
 
-     
+      // Get input values
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('Password').value;
 
-        </div>
-       </section>
- <script >
-                  const childDiv = document.querySelector('.first-image');
-                  console.log("its working")
+      // Validate password length
+      if (password.length < 6) {
+        Swal.fire({
+          icon: "error",
+          title: "Invalid Password",
+          text: "The password must be at least six characters long. Please try again.",
+        });
+        return; // Stop further execution
+      }
 
-          const handleScroll = () => {
-            const rect = childDiv.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-              childDiv.classList.add('in-view');
-            }
-          };
+      // Make AJAX request
+      $.ajax({
+        type: 'POST',
+        url: "https://testing1-xpjd.onrender.com/api/auth/login",
+        data: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+          if (response.status === 'success') {
+            $("#login")[0].reset(); // Reset the form
 
-          window.addEventListener('scroll', handleScroll);
-          handleScroll(); // To check initial state
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              text: "Login was successful",
+            }).then(function () {
+              // Store token in sessionStorage
+              sessionStorage.setItem('token', response.data.token);
+              sessionStorage.setItem('user_id', response.data.id);
 
-        //   SECOND Animation
+              console.log("Token:", sessionStorage.getItem('token'));
+              console.log("User ID:", sessionStorage.getItem('user_id'));
 
+              // Redirect to home page
+              window.location.href = "Pages/Home.html";
+            });
+          } else {
+            $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
+            setTimeout(function () {
+              $("#msg1").html('');
+            }, 5000);
+          }
+        },
+        error: function (response) {
+          const errorMessage = response.responseJSON?.message || "An error occurred. Please try again.";
+          $("#msg1").html(`<span class="alert alert-danger">${errorMessage}</span>`);
+          setTimeout(function () {
+            $("#msg1").html('');
+          }, 5000);
+        },
+      });
+    });
 
-        const secondDiv = document.querySelector('.second-div');
-                  console.log("its working")
-
-          const animateScroll = () => {
-            const rect = childDiv.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-              secondDiv.classList.add('in-view');
-            }
-          };
-
-          window.addEventListener('scroll', animateScroll);
-          animateScroll(); // To check initial state
-
-
- </script>      
+  </script>
 </body>
+
 </html>
