@@ -98,7 +98,7 @@ header {
     font-size: 14px;
     color: #000000;
     margin-top: -10px;
-    margin-left: 70px;
+    margin-left: 15px;
 }
 
   
@@ -145,7 +145,7 @@ header {
 }
   
 .affiliates-section .item h4 {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -227,18 +227,4 @@ header {
   }
   
   
-  /* Responsive Styles */
-  /* @media (max-width: 480px) {
-    .header-title {
-      font-size: 1.2rem;
-    }
-  
-    .points-info i {
-      font-size: 2rem;
-    }
-  
-    .affiliate-card i {
-      font-size: 1.5rem;
-    }
-  } */
   
