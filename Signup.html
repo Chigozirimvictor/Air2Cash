@@ -18,7 +18,7 @@
             </div>
 
             <form id="register">
-                <div id="msg1"></div> <!-- Error message container -->
+                <div id="msg1" class="error"></div> <!-- Error message container -->
                 <div class="pin-wrap">
                     <input type="text" id="username" placeholder="Full Name"
                         name="username" class="pin-code" required>
@@ -30,13 +30,15 @@
                     <input type="password" id="first" name="password"
                         placeholder="Create Password"
                         class="pin-code Create-pw first" required>
-                    <p>Must contain letters, numbers, and special
+                    <p>Must be up to 6 digits
                         characters.</p>
                     <input type="password" id="confrim"
                         placeholder="Confirm Password"
                         class="pin-code Create-pw confrim" required>
                     <input type="password" id="pin" placeholder="Create Pin"
                         name="pin" class="pin-code Create-pw pin" required>
+                        <p>Must be up to 4 digits
+                           </p>
                     <input type="text" placeholder="Referral Code (Optional)"
                         class="pin-code">
                 </div>
@@ -65,6 +67,7 @@
             </div>
         </div>
         <script src="Scripts/jquery/jquery.min.js"></script>
+        <script src="Scripts/session.js"></script>
         <script src="Scripts/sweetalert2/sweetalert2.all.min.js"></script>
         <script>
         const childDiv = document.querySelector('.main-body');
@@ -132,10 +135,7 @@
                         }
                     },
                     error: function () {
-                        $("#msg1").html('<span class="alert alert-danger">Unable to process your request at this time</span>');
-                        setTimeout(function() {
-                            $("#msg1").html('');
-                        }, 5000);
+                        $("#msg1").html('<span class="alert alert-danger">Used email or passwords not up to 6 digits</span>');
                     },
                 });
             } else {

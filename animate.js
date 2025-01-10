@@ -22,6 +22,7 @@ inputElement.forEach((elem,index)=>{
 })
 
 
+
 // ANIMATION CODE BELOW
 
         const childDiv = document.querySelector('.Create-new-pw');
@@ -50,3 +51,9 @@ anotherDiv.classList.add('in-view');
 
 window.addEventListener('scroll', animate2);
 animate2(); // To check initial state
+
+
+
+document.getElementById('reset-click').addEventListener('click', function () {
+    alert('Click Okay to LogIn.');
+  });
