@@ -4,7 +4,7 @@ function checkSessionAndRedirect() {
 
     if (!sessionToken) {
         // If no session token, redirect to the desired page
-        window.location.href = '../SignUp.html'; // Replace '/login.html' with your desired page
+        window.location.href = '../start.html'; // Replace '/login.html' with your desired page
     }
     else {
         // If session exists, show the page content
