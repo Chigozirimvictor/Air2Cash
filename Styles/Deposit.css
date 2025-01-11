@@ -1,0 +1,128 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #000000;
+    color: white;
+  }
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  header .logo img {
+    width: 22px;
+    height: 20px;
+  }
+  
+  header .logo p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  header .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  header .nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  header .nav a:hover,
+  header .nav a.active {
+    color: green;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form input,
+  .form select,
+  .form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form button {
+    background-color: #000000;
+    margin-top: 1.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background-color: #656565;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header {
+      flex-wrap: nowrap; /* Ensure elements remain in one line */
+      padding: 1rem;
+    }
+  
+    header .nav {
+      gap: 9px;
+    }
+  
+    .container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    .form button {
+      font-size: 0.9rem;
+      padding: 0.6rem;
+    }
+  }
+  

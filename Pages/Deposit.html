@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deposit Page</title>
+  <link rel="stylesheet" href="../Styles/Deposit.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+        <img src="../Assets/Air2Cash logo.png" alt="Air2Cash logo">
+        <p>Air2Cash</p>
+    </div>
+    <nav class="nav">
+      <a href="home.html">Home</a>
+      <a href="deposit.html"class="active" >Deposit</a>
+      <a href="withdraw.html">Withdraw</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Deposit Funds</h1>
+    <form id="depositForm" class="form">
+      <label for="amount">Amount (₦):</label>
+      <input type="number" id="amount" name="amount" required placeholder="Enter amount">
+
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="">Select a payment method</option>
+        <option value="bankTransfer">Bank Transfer</option>
+        <option value="card">Debit/Credit Card</option>
+        <option value="ussd">USSD</option>
+      </select>
+
+      <div id="paymentDetails" class="hidden">
+        <!-- This section will display additional input fields based on the payment method selected -->
+      </div>
+
+      <button type="submit" class="btn">Deposit</button>
+    </form>
+  </main>
+
+  <script src="../Scripts/Deposit.js"></script>
+</body>
+</html>
