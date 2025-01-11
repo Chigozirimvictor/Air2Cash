@@ -129,6 +129,8 @@
               // Store token in sessionStorage
               sessionStorage.setItem('token', response.data.token);
               sessionStorage.setItem('user_id', response.data.user.id);
+              sessionStorage.setItem('username', response.data.user.username);
+
 
               console.log("Token:", sessionStorage.getItem('token'));
               console.log("User ID:", sessionStorage.getItem('user_id'));

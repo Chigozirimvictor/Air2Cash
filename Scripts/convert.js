@@ -1,25 +1,38 @@
 function mtn() {
     const token = sessionStorage.getItem("token");
-    const id = sessionStorage.getItem("user_id");
-  
-    if (!token || !id) {
+
+
+    if (!token) {
         console.error("Token or user ID is missing");
         return;
     }
-  
+
     $.ajax({
-        type: "GET",
-        url: "/your-account-balance-url",
+        type: "post",
+        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
         headers: {
-            'Authorization': `Bearer ${token}`  
+            'Authorization': `Bearer ${token}`
         },
         data: {
-            'user_id': id
+            'network': "mtn"
         },
         success: function (data) {
             if (data.status === 'success') {
-                $("#account_balance").html(data.amount);
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: data.message,
+                })
+                $("#msg").html(data.phone);
+                $("#receiverPhone").val(data.phone);
+                const network = "mtn";
+                $("#network").val(network);;
             } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "error",
+                    text: data.message.message,
+                })
                 console.error("Unexpected response:", data);
             }
         },
@@ -27,30 +40,43 @@ function mtn() {
             console.error("AJAX Error:", status, error);
         }
     });
-  };
+};
 
-  function glo() {
+function glo() {
     const token = sessionStorage.getItem("token");
-    const id = sessionStorage.getItem("user_id");
-  
-    if (!token || !id) {
+
+
+    if (!token) {
         console.error("Token or user ID is missing");
         return;
     }
-  
+
     $.ajax({
-        type: "GET",
-        url: "/your-account-balance-url",
+        type: "post",
+        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
         headers: {
-            'Authorization': `Bearer ${token}`  
+            'Authorization': `Bearer ${token}`
         },
         data: {
-            'user_id': id
+            'network': "glo"
         },
         success: function (data) {
             if (data.status === 'success') {
-                $("#account_balance").html(data.amount);
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: data.message,
+                })
+                $("#msg").html(data.phone);
+                $("#receiverPhone").val(data.phone);
+                const network = "glo"
+                $("#network").val(network);
             } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "error",
+                    text: data.message.message,
+                })
                 console.error("Unexpected response:", data);
             }
         },
@@ -58,31 +84,44 @@ function mtn() {
             console.error("AJAX Error:", status, error);
         }
     });
-  };
+};
 
 
-  function airtel() {
+function airtel() {
     const token = sessionStorage.getItem("token");
-    const id = sessionStorage.getItem("user_id");
-  
-    if (!token || !id) {
+    if (!token) {
         console.error("Token or user ID is missing");
         return;
     }
-  
+
     $.ajax({
-        type: "GET",
-        url: "/your-account-balance-url",
+        type: "post",
+        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
         headers: {
-            'Authorization': `Bearer ${token}`  
+            'Authorization': `Bearer ${token}`
         },
         data: {
-            'user_id': id
+            'network': 'airtel'
         },
         success: function (data) {
             if (data.status === 'success') {
-                $("#account_balance").html(data.amount);
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: data.message,
+                });
+                $("#msg").html(data.phone);
+                $("#receiverPhone").val(data.phone);
+                $("#receiverPhone").val(data.phone);
+                const network = "airtel"
+                $("#network").val(network);
             } else {
+
+                Swal.fire({
+                    icon: "error",
+                    title: "error",
+                    text: data.message.message,
+                })
                 console.error("Unexpected response:", data);
             }
         },
@@ -90,4 +129,8 @@ function mtn() {
             console.error("AJAX Error:", status, error);
         }
     });
-  };
+};
+
+
+
+

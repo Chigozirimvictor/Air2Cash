@@ -16,12 +16,12 @@
 <body onload="checkSessionAndRedirect()">
   <div class="container">
     <!-- Header Section -->
-    <header class="header">
+    <header class="header" onload="getuser_detail()">
       <div class="user-info">
         <img src="../Assets/Profile pic.jpeg" alt="Profile Image" class="profile-img">
         <div>
           <p class="welcome-text">Welcome back,</p>
-          <h2 class="user-name">Jacob Jones</h2>
+          <h2 class="user-name"></h2>
         </div>
       </div>
       <button class="notifications-btn" onclick="toggleColor()">

@@ -1,3 +1,7 @@
+const username = sessionStorage.getItem('username');
+console.log(username)
+$('.user-name').html(username)
+
 // To enable the amount to open and close when the eye icon is clicked
 document.querySelector('.eye-icon').addEventListener('click', () => {
   const balance = document.querySelector('.balance');
