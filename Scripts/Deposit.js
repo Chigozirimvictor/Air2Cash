@@ -33,18 +33,18 @@
 //     }
 //   });
   
-  document.getElementById("depositForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const receiptEl = document.getElementById("receipt");
-    const amount = document.getElementById("amount").value;
-    const paymentMethod = document.getElementById("paymentMethod").value;
+  // document.getElementById("depositForm").addEventListener("submit", function (e) {
+  //   e.preventDefault();
+  //   const receiptEl = document.getElementById("receipt");
+  //   const amount = document.getElementById("amount").value;
+  //   const paymentMethod = document.getElementById("paymentMethod").value;
   
 //     if (!amount || !paymentMethod) {
 //       alert("Please fill out all required fields!");
 //       return;
 //     }
   
-    receiptEl.textContent= `Deposit of ₦${amount} using ${paymentMethod} has been initiated successfully.`;
-    receiptEl.style.color = "green";
-  });
+  //   receiptEl.textContent= `Deposit of ₦${amount} using ${paymentMethod} has been initiated successfully.`;
+  //   receiptEl.style.color = "green";
+  // });
   
