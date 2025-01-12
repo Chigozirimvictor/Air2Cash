@@ -28,7 +28,11 @@
     /* animation: slideMe 2.5s ease-in; */
    
       
-     } 
+     }
+     
+     #msg1{
+        color: red;
+     }
       
      
      @keyframes slideMe {
@@ -150,7 +154,8 @@
         margin-bottom: 1rem;
      }
      .Remember-div{
-        width: 60%;
+        width: 100%;
+        
      }
      .checkbox{
         list-style-type: none;
@@ -165,6 +170,12 @@
      }
      .forgot{
         color: #01fe87;
+     }
+     .input-1{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
      }
      .signIn{
         margin-top: 2rem;
@@ -186,6 +197,14 @@
         color: #01fe87;
         text-decoration: none;
         
+     }
+     .down-part{
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
      }
     /* } */
 
@@ -216,7 +235,7 @@
             width: 100%;
         }
         .Remember-div{
-            width: 70%;
+            width: 100%;
             /* padding-left: 1rem;
             padding-right: 1rem; */
         }

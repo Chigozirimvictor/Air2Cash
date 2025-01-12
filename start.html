@@ -11,8 +11,8 @@
 </head>
 
 <body>
+  <div class="inner-body">
   <section class="section">
-    <div class="inner-body">
       <div class="first-image">
         <ul class="black-bg">
           <li class="bg-image">
@@ -27,6 +27,7 @@
         <form id="login">
           <h1>Start Your Journey</h1>
           <span>Sign in to Convert your Airtime to Cash</span>
+          <p id="msg1"></p>
           <br>
           <div class="input-1">
             <input type="text" placeholder="Enter your Mobile No./Email" class="email" id="email">
@@ -37,7 +38,7 @@
 
           <div class="Remember-div">
             <ul class="checkbox">
-              <li><input type="checkbox" class="check"> Remember me </li>
+              <li><input type="checkbox" class="check" required> Remember me </li>
               <a href="./fgpassword.html">
                 <li class="forgot"> Forgot
                   password?</li>
@@ -48,11 +49,13 @@
             <button type="submit" value="Sign In" class="signIn">Sign In/Log
               In</button>
           </div>
-          <br><br>
+          <br>
+          <div class="down-part">
           <span class="dont-acct">Dont have an Air2Cash account yet?</span>
           <a href="./Signup.html">
             <h5 class="h5">Sign Up Instead</h5>
           </a>
+        </div>
         </form>
       </div>
 
@@ -105,7 +108,8 @@
           text: "The password must be at least six characters long. Please try again.",
         });
         return; // Stop further execution
-      }
+      }  
+
 
       // Make AJAX request
       $.ajax({
@@ -140,6 +144,7 @@
             });
           } else {
             $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
+          
             setTimeout(function () {
               $("#msg1").html('');
             }, 5000);

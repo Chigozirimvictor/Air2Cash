@@ -1,3 +1,19 @@
+const username = sessionStorage.getItem('username');
+console.log(username)
+$('.name').html(username)
+
+
+// sessionStorage.setItem('token', response.data.token);
+//               sessionStorage.setItem('user_id', response.data.user.id);
+//               sessionStorage.setItem('username', response.data.user.username);
+
+
+//               console.log("Token:", sessionStorage.getItem('token'));
+//               console.log("User ID:", sessionStorage.getItem('user_id'));
+
+
+
+
 // script.js
 
 // Enable Fingerprint Toggle
@@ -51,3 +67,5 @@ document.querySelectorAll('.footer-link').forEach((link) => {
       link.classList.add('active');
     });
   });
+
+  

@@ -35,7 +35,7 @@ document.getElementById("paymentMethod").addEventListener("change", function () 
   
   document.getElementById("depositForm").addEventListener("submit", function (e) {
     e.preventDefault();
-  
+    const receiptEl = document.getElementById("receipt");
     const amount = document.getElementById("amount").value;
     const paymentMethod = document.getElementById("paymentMethod").value;
   
@@ -44,6 +44,7 @@ document.getElementById("paymentMethod").addEventListener("change", function () 
       return;
     }
   
-    alert(`Deposit of ₦${amount} using ${paymentMethod} has been initiated successfully.`);
+    receiptEl.textContent= `Deposit of ₦${amount} using ${paymentMethod} has been initiated successfully.`;
+    receiptEl.style.color = "green";
   });
   
