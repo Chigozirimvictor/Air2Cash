@@ -7,7 +7,7 @@ document.getElementById("withdrawForm").addEventListener("submit", function (e) 
   
     const messageElement = document.getElementById("message");
   
-    // Basic validation
+    // Basic validation 
     if (amount <= 0) {
       messageElement.textContent = "Please enter a valid amount.";
       messageElement.style.color = "red";
