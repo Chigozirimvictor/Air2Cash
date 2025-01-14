@@ -24,24 +24,13 @@
     <form id="depositForm" class="form">
       <label for="amount">Amount (₦):</label>
       <input type="number" id="amount" name="amount" required placeholder="Enter amount">
-
-      <label for="paymentMethod">Payment Method:</label>
-      <select id="paymentMethod" name="paymentMethod" required>
-        <option value="">Select a payment method</option>
-        <option value="bankTransfer">Bank Transfer</option>
-        <option value="card">Debit/Credit Card</option>
-        <option value="ussd">USSD</option>
-      </select>
-
-      <div id="paymentDetails" class="hidden">
-        <!-- This section will display additional input fields based on the payment method selected -->
-      </div>
-
+ 
       <button type="submit" class="btn">Deposit</button>
     </form>
     <p id="receipt"></p>
   </main>
 
   <script src="../Scripts/Deposit.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </body>
 </html>
