@@ -1,6 +1,6 @@
-function mtn(event) {
+function initializeAirtime(event, network) {
+    event.preventDefault();
     const token = sessionStorage.getItem("token");
-    event.preventDefault() 
 
     if (!token) {
         console.error("Token or user ID is missing");
@@ -13,98 +13,7 @@ function mtn(event) {
         headers: {
             'Authorization': `Bearer ${token}`
         },
-        data: {
-            'network': "mtn"
-        },
-        success: function (data) {
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: data.message,
-                })
-                $("#msg").html(data.phone);
-                $("#receiverPhone").val(data.phone);
-                const network = "mtn";
-                $("#network").val(network);;
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "error",
-                    text: data.message.message,
-                })
-                console.error("Unexpected response:", data);
-            }
-        },
-        error: function (xhr, status, error) {
-            console.error("AJAX Error:", status, error);
-        }
-    });
-};
-
-function glo(event) {
-    event.preventDefault()
-    const token = sessionStorage.getItem("token");
-
-
-    if (!token) {
-        console.error("Token or user ID is missing");
-        return;
-    }
-
-    $.ajax({
-        type: "post",
-        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        data: {
-            'network': "glo"
-        },
-        success: function (data) {
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: data.message,
-                })
-                $("#msg").html(data.phone);
-                $("#receiverPhone").val(data.phone);
-                const network = "glo"
-                $("#network").val(network);
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "error",
-                    text: data.message.message,
-                })
-                console.error("Unexpected response:", data);
-            }
-        },
-        error: function (xhr, status, error) {
-            console.error("AJAX Error:", status, error);
-        }
-    });
-};
-
-
-function airtel(event) {
-    const token = sessionStorage.getItem("token");
-    if (!token) {
-        console.error("Token or user ID is missing");
-        return;
-    }
-
-    event.preventDefault()
-    $.ajax({
-        type: "post",
-        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        data: {
-            'network': 'airtel'
-        },
+        data: { network },
         success: function (data) {
             if (data.status === 'success') {
                 Swal.fire({
@@ -114,25 +23,36 @@ function airtel(event) {
                 });
                 $("#msg").html(data.phone);
                 $("#receiverPhone").val(data.phone);
-                $("#receiverPhone").val(data.phone);
-                const network = "airtel"
                 $("#network").val(network);
             } else {
-
                 Swal.fire({
                     icon: "error",
-                    title: "error",
-                    text: data.message.message,
-                })
+                    title: "Error",
+                    text: data.message.message || "An unexpected error occurred",
+                });
                 console.error("Unexpected response:", data);
             }
         },
         error: function (xhr, status, error) {
             console.error("AJAX Error:", status, error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Failed to process the request. Please try again later.",
+            });
         }
     });
-};
+}
 
+// Usage for specific networks
+function mtn(event) {
+    initializeAirtime(event, "mtn");
+}
 
+function glo(event) {
+    initializeAirtime(event, "glo");
+}
 
-
+function airtel(event) {
+    initializeAirtime(event, "airtel");
+}
