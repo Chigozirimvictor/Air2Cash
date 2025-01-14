@@ -1,58 +1,62 @@
-function initializeAirtime(event, network) {
+const initializeAirtime = async (event, network) => {
     event.preventDefault();
     const token = sessionStorage.getItem("token");
 
     if (!token) {
-        console.error("Token or user ID is missing");
+        console.error("Token is missing");
+        Swal.fire({
+            icon: "error",
+            title: "Authentication Error",
+            text: "User token is missing. Please log in again.",
+        });
         return;
     }
 
-    $.ajax({
-        type: "post",
-        url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        data: { network },
-        success: function (data) {
-            if (data.status === 'success') {
-                Swal.fire({
-                    icon: "success",
-                    title: "Success",
-                    text: data.message,
-                });
-                $("#msg").html(data.phone);
-                $("#receiverPhone").val(data.phone);
-                $("#network").val(network);
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: data.message.message || "An unexpected error occurred",
-                });
-                console.error("Unexpected response:", data);
-            }
-        },
-        error: function (xhr, status, error) {
-            console.error("AJAX Error:", status, error);
+    try {
+        const response = await fetch("https://testing1-xpjd.onrender.com/api/airtime/initialize", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ network }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.status === "success") {
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: data.message,
+            });
+            document.getElementById("msg").innerHTML = data.phone;
+            document.getElementById("receiverPhone").value = data.phone;
+            document.getElementById("network").value = network;
+        } else {
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: "Failed to process the request. Please try again later.",
+                text: data.message || "An unexpected error occurred.",
             });
+            console.error("Unexpected response:", data);
         }
-    });
-}
+    } catch (error) {
+        console.error("Fetch Error:", error);
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Failed to process the request. Please try again later.",
+        });
+    }
+};
 
-// Usage for specific networks
-function mtn(event) {
-    initializeAirtime(event, "mtn");
-}
+// Event handlers for specific networks
+const mtn = (event) => initializeAirtime(event, "mtn");
+const glo = (event) => initializeAirtime(event, "glo");
+const airtel = (event) => initializeAirtime(event, "airtel");
 
-function glo(event) {
-    initializeAirtime(event, "glo");
-}
-
-function airtel(event) {
-    initializeAirtime(event, "airtel");
-}
+// Attach event listeners to buttons
+document.getElementById("mtnButton").addEventListener("click", mtn);
+document.getElementById("gloButton").addEventListener("click", glo);
+document.getElementById("airtelButton").addEventListener("click", airtel);
