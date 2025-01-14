@@ -37,7 +37,7 @@ const initializeAirtime = async (event, network) => {
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: data.message || "An unexpected error occurred.",
+                text: data.message.message || "An unexpected error occurred.",
             });
             console.error("Unexpected response:", data);
         }
