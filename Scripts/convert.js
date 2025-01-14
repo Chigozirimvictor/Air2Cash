@@ -1,6 +1,6 @@
-function mtn() {
+function mtn(event) {
     const token = sessionStorage.getItem("token");
-
+    event.preventDefault() 
 
     if (!token) {
         console.error("Token or user ID is missing");
@@ -42,7 +42,8 @@ function mtn() {
     });
 };
 
-function glo() {
+function glo(event) {
+    event.preventDefault()
     const token = sessionStorage.getItem("token");
 
 
@@ -87,13 +88,14 @@ function glo() {
 };
 
 
-function airtel() {
+function airtel(event) {
     const token = sessionStorage.getItem("token");
     if (!token) {
         console.error("Token or user ID is missing");
         return;
     }
 
+    event.preventDefault()
     $.ajax({
         type: "post",
         url: "https://testing1-xpjd.onrender.com/api/airtime/initialize",
