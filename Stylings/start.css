@@ -213,6 +213,9 @@
             /* overflow: hidden; */
             width: 100%;
         }
+        section{
+            overflow: hidden;
+        }
         .first-image{
             display: flex;
             justify-content: center;

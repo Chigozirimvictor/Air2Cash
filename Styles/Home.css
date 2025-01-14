@@ -355,9 +355,15 @@ transform: translateY( 100px);
   .actions {
     grid-template-columns: repeat(2, 1fr);
   }
+  .container .user-name{
+    font-size: 18px;
+    /* width: 100%; */
+    /* display: none; */
+  }
+  
 
   .balance-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 10px;
   }
