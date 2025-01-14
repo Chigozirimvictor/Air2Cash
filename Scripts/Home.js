@@ -168,8 +168,8 @@ function logout() {
     success: function (data) {
       if (data.status === 'success') { // use triple equals for strict equality check
         alert(data);
-        // sessionStorage.clear();
-        // checkSession();
+        sessionStorage.clear();
+        checkSession();
       }
     }
   });
