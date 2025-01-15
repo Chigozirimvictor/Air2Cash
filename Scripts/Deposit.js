@@ -8,28 +8,49 @@ paymentForm.addEventListener(
   false
 )
 
-function fetchSecretKeyAndPay () {
-  fetch('', {
+function fetchSecretKeyAndPay() {
+  const id = sessionStorage.getItem("user_id");
+  const token = sessionStorage.getItem("token"); // Retrieve the token from session storage
+  
+  if (!id || !token) {
+    console.error("User ID or token is missing in session storage");
+    showSweetAlert('User ID and token are required for the transaction', false);
+    return;
+  }
+
+  const formData = new FormData(paymentForm);
+  formData.append("user_id", user_id);  // Add user_id to the FormData
+
+  fetch('https://testing1-xpjd.onrender.com/api/deposits/getKey', {
     method: 'POST',
-    body: new FormData(paymentForm),
+    body: formData,
+    headers: {
+      'Authorization': `Bearer ${token}` // Add Authorization header with Bearer token
+    },
     cache: 'no-store'
   })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok')
+        throw new Error('Network response was not ok');
       }
-      return response.json()
+      return response.json();
     })
     .then(data => {
       if (data.result === 'success') {
-        payWithPaystack(data.amount, data.email, data.publicKey)
+        const publicKey = atob(data.publicKey);
+        payWithPaystack(data.amount, data.email, publicKey);
+      } else {
+        console.error("Failed to fetch secret key:", data.message);
+        showSweetAlert('Failed to fetch secret key. Please try again', false);
       }
     })
     .catch(error => {
-      console.error('Error fetching secret key:', error)
-      showSweetAlert('An error occurred during the transaction', false)
-    })
+      console.error('Error fetching secret key:', error);
+      showSweetAlert('An error occurred during the transaction', false);
+    });
 }
+
+
 
 function payWithPaystack (amount, email, publicKey) {
   let handler = PaystackPop.setup({
