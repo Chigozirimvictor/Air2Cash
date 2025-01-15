@@ -18,7 +18,8 @@ async function fetchBalance() {
 
   const token = sessionStorage.getItem("token");
   const id = sessionStorage.getItem("user_id");
-
+ console.log(token);
+ console.log(id)
   if (!token || !id) {
     console.error("Token or user ID is missing");
     return;
