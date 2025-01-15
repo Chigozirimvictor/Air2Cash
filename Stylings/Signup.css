@@ -13,6 +13,7 @@ body{
     
 }
 .main-body{
+    width: 55%;
     transform: translateY( -180px);
     opacity: 0;
     transition: transform 1s cubic-bezier(0.42, 0, 0.58, 1), opacity 2s ease-in-out;
@@ -25,9 +26,7 @@ body{
 a{
     text-decoration: none;
 }
-.main-body{
-    width: 50%;
-}
+
 
 .error{
     padding: 10px;
@@ -114,9 +113,13 @@ a{
 .h5{
     color: #01fe87;
     text-decoration: none;
-
+    /* margin-bottom: 0px; */
+    /* padding-bottom: 30px; */
 }
 @media (max-width:475px) {
+    #register .pin-code{
+        width: 120%;
+    }
     .up-text h2{
         font-size: 15px;
         width: 100%;
