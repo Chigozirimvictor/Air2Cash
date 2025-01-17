@@ -60,3 +60,25 @@ const airtel = (event) => initializeAirtime(event, "airtel");
 document.getElementById("mtnButton").addEventListener("click", mtn);
 document.getElementById("gloButton").addEventListener("click", glo);
 document.getElementById("airtelButton").addEventListener("click", airtel);
+
+
+
+
+
+// Animations
+
+
+
+// Animation 2
+const animateDiv = document.querySelector('.form-input');
+console.log("its working")
+
+const animateScroll = () => {
+  const rect = animateDiv.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom >= 0) {
+    animateDiv.classList.add('in-view');
+  }
+};
+
+window.addEventListener('scroll', animateScroll);
+animateScroll(); // To check initial state

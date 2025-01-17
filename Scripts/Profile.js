@@ -1,6 +1,11 @@
 const username = sessionStorage.getItem('username');
 console.log(username)
-$('.name').html(username)
+document.querySelector('.name').innerHTML = username;
+
+
+const ineername = sessionStorage.getItem('username');
+console.log(username)
+document.querySelector('.inner-name').innerHTML = username;
 
 
 // sessionStorage.setItem('token', response.data.token);
