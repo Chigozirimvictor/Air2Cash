@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 document.getElementById("withdrawForm").addEventListener("submit", function (e) {
     e.preventDefault();
   
@@ -27,9 +26,7 @@ document.getElementById("withdrawForm").addEventListener("submit", function (e) 
       document.getElementById("withdrawForm").reset();
     }, 2000);
   });
-  
-=======
-
+ 
 
 
 function home () {
@@ -171,7 +168,6 @@ function sendToTransferPHP (pin, acct_number, amount, recipient_code) {
       }, 5000);
     });
 }
->>>>>>> Stashed changes
 
 function amounts () {
   var amount = document.getElementById('accts').value
