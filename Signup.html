@@ -18,7 +18,7 @@
         </div>
 
         <form id="register">
-            <div id="msg1"></div> <!-- Error message container -->
+            <div id="msg1" style="color: red; font-size: 13px; padding-top: 10px;"></div> <!-- Error message container -->
             <div class="pin-wrap">
                 <input type="text" id="username" placeholder="Full Name" name="username" class="pin-code" required>
                 <input type="number" id="phoneNumber" placeholder="Mobile No." name="phoneNumber" class="pin-code"
@@ -26,8 +26,8 @@
                 <input type="email" id="email" placeholder="E-mail Address" name="email" class="pin-code" required>
                 <input type="password" id="first" name="password" placeholder="Create Password"
                     class="pin-code Create-pw first" required>
-                <p>Must contain letters, numbers, and special
-                    characters.</p>
+                <p>Must be up to 6 digits,contain letters, numbers, and special
+                    characters .</p>
                 <input type="password" id="confrim" placeholder="Confirm Password" class="pin-code Create-pw confrim"
                     required>
                 <input type="password" id="pin" placeholder="Create Pin" name="pin" class="pin-code Create-pw pin"
@@ -120,7 +120,7 @@
                         }
                     },
                     error: function () {
-                        $("#msg1").html('<span class="alert alert-danger">Unable to process your request at this time</span>');
+                        $("#msg1").html('<span class="alert alert-danger">Email already in Use or follow instructions </span>');
                         setTimeout(function () {
                             $("#msg1").html('');
                         }, 5000);
