@@ -177,9 +177,9 @@
         justify-content: center;
         align-items: center;
      }
-     .signIn{
+     .signIn {
         margin-top: 2rem;
-         width:15rem;
+        width: 15rem;
         padding: 1rem;
         border-radius: 10px;
         background-color: black;
@@ -188,8 +188,21 @@
         border: none;
         height: 7vh;
         cursor: pointer;
-        /* margin-bottom: 10px; */
-     }
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    }
+    
+    .signIn:hover {
+        background-color: gray; /* Change background color on hover */
+        transform: scale(1.05); /* Slightly enlarge the button */
+    }
+    
+    .signIn:disabled {
+        background-color: lightgray; /* Disabled state color */
+        color: darkgray; /* Text color for disabled state */
+        cursor: not-allowed; /* Show "not allowed" cursor */
+        opacity: 0.6; /* Slightly faded */
+    }
+    
      .dont-acct{
         font-size: 15px;
      }

@@ -1,14 +1,174 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+}
+a {
+  color: white;
+}
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #000000;
+  color: #fff;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo img {
+  width: 22px;
+  height: 20px;
+}
+
+.logo p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar .nav-links a.active,
+.navbar .nav-links a:hover {
+  color: green;
+}
+
+/* Main Content Styles */
+.withdraw-container {
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.withdraw-container h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 10px;
+  background: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background: #656565;
+}
+
+#message {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  background: #000000;
+  color: white;
+  margin-top: 30px;
+}
+/* Styling the label */
+label[for='bankDropdown'] {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* Styling the select element */
+#bankDropdown {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on select element */
+#bankDropdown:hover {
+  border-color: #040a11; /* Change border on hover */
+}
+
+/* Focus effect (when select is clicked or in focus) */
+#bankDropdown:focus {
+  border-color: #05070a; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
+
+/* Styling the placeholder (the first option) */
+#bankDropdown option {
+  color: #999; /* Light gray color for the placeholder */
+}
+
+/* Disabled state for select */
+#bankDropdown:disabled {
+  background-color: #f0f0f0;
+  border-color: #ddd;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: nowrap;
   }
-  a{
-    color: white;
-  }
+<<<<<<< Updated upstream
+  
   /* Navbar Styles */
   .navbar {
     display: flex;
@@ -33,99 +193,13 @@
     font-weight: bold;
   }
   
+=======
+>>>>>>> Stashed changes
   .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+    gap: 7px;
   }
-  
-  .navbar .nav-links a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .navbar .nav-links a.active, 
-  .navbar .nav-links a:hover {
-    color: green;
-  }
-  
-  /* Main Content Styles */
+
   .withdraw-container {
-    max-width: 500px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 20px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 90%;
   }
-  
-  .withdraw-container h1 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .btn-submit {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 10px;
-    background: #000000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  .btn-submit:hover {
-    background: #656565;
-  }
-  
-  #message {
-    margin-top: 15px;
-    color: green;
-    font-weight: bold;
-  }
-  
-  /* Footer Styles */
-  footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #000000;
-    color: white;
-    margin-top: 30px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    header {
-        flex-wrap: nowrap;
-    }
-    .navbar .nav-links {
-      gap: 7px;
-    }
-  
-    .withdraw-container {
-      width: 90%;
-    }
-  }
-  
+}
