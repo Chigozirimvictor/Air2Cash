@@ -167,8 +167,6 @@ label[for='bankDropdown'] {
   header {
     flex-wrap: nowrap;
   }
-<<<<<<< Updated upstream
-  
   /* Navbar Styles */
   .navbar {
     display: flex;
@@ -193,8 +191,6 @@ label[for='bankDropdown'] {
     font-weight: bold;
   }
   
-=======
->>>>>>> Stashed changes
   .navbar .nav-links {
     gap: 7px;
   }
