@@ -4,7 +4,9 @@ function checkSessionAndRedirect () {
 
   if (!sessionToken) {
     // If no session token, redirect to the desired page
+    sessionStorage.clear()
     window.location.href = '../start.html' // Replace '/login.html' with your desired page
+
   } else {
     // If session exists, show the page content
     document.body.style.display = 'block'
@@ -29,7 +31,6 @@ function logout () {
         // use triple equals for strict equality check
         checkSessionAndRedirect()
         sessionStorage.clear()
-        checkSession()
       }
     }
   })
