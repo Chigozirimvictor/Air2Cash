@@ -169,6 +169,17 @@ button{
     margin-bottom: 35px;
     box-shadow: 0 0 35px;
 }
+.signIn:hover {
+  background-color: gray; /* Change background color on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.signIn:disabled {
+  background-color: lightgray; /* Disabled state color */
+  color: darkgray; /* Text color for disabled state */
+  cursor: not-allowed; /* Show "not allowed" cursor */
+  opacity: 0.6; /* Slightly faded */
+}
 
 .footer {
     position: sticky;

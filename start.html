@@ -12,7 +12,7 @@
 
 <body>
   <div class="inner-body">
-  <section class="section">
+    <section class="section">
       <div class="first-image">
         <ul class="black-bg">
           <li class="bg-image">
@@ -51,15 +51,15 @@
           </div>
           <br>
           <div class="down-part">
-          <span class="dont-acct">Dont have an Air2Cash account yet?</span>
-          <a href="./Signup.html">
-            <h5 class="h5">Sign Up Instead</h5>
-          </a>
-        </div>
+            <span class="dont-acct">Dont have an Air2Cash account yet?</span>
+            <a href="./Signup.html">
+              <h5 class="h5">Sign Up Instead</h5>
+            </a>
+          </div>
         </form>
       </div>
 
-    </div>
+  </div>
   </section>
   <script src="Scripts/jquery/jquery.min.js"></script>
   <script src="Scripts/sweetalert2/sweetalert2.all.min.js"></script>
@@ -95,6 +95,7 @@
 
     $('#login').on('submit', function (event) {
       event.preventDefault();
+      $('.signIn').attr('disabled', true);
 
       // Get input values
       const email = document.getElementById('email').value;
@@ -102,13 +103,14 @@
 
       // Validate password length
       if (password.length < 6) {
+        $('.signIn').attr('disabled', false);
         Swal.fire({
           icon: "error",
           title: "Invalid Password",
           text: "The password must be at least six characters long. Please try again.",
         });
         return; // Stop further execution
-      }  
+      }
 
 
       // Make AJAX request
@@ -142,15 +144,10 @@
               // Redirect to home page
               window.location.href = "Pages/Home.html";
             });
-          } else {
-            $("#msg1").html('<span class="alert alert-danger">Email already in use</span>');
-          
-            setTimeout(function () {
-              $("#msg1").html('');
-            }, 5000);
           }
         },
         error: function (response) {
+          $('.signIn').attr('disabled', false);
           const errorMessage = response.responseJSON?.message || "An error occurred. Please try again.";
           $("#msg1").html(`<span class="alert alert-danger">${errorMessage}</span>`);
           setTimeout(function () {
