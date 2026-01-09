@@ -24,18 +24,18 @@ document.querySelector('.inner-name').innerHTML = username;
 // Enable Fingerprint Toggle
 document.getElementById('enable-fingerprint').addEventListener('change', function () {
   if (this.checked) {
-      alert('Fingerprint authentication enabled.');
+    alert('Fingerprint authentication enabled.');
   } else {
-      alert('Fingerprint authentication disabled.');
+    alert('Fingerprint authentication disabled.');
   }
 });
 
 // Hide Balance Toggle
 document.getElementById('hide-balance').addEventListener('change', function () {
   if (this.checked) {
-      alert('Account balance will be hidden.');
+    alert('Account balance will be hidden.');
   } else {
-      alert('Account balance will be visible.');
+    alert('Account balance will be visible.');
   }
 });
 
@@ -65,12 +65,11 @@ document.getElementById('log-out').addEventListener('click', function () {
 
 // To enable the footer links to change color when clicked
 document.querySelectorAll('.footer-link').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      document.querySelectorAll('.footer-link').forEach((el) => {
-        el.classList.remove('active');
-      });
-      link.classList.add('active');
+  link.addEventListener('click', (e) => {
+    document.querySelectorAll('.footer-link').forEach((el) => {
+      el.classList.remove('active');
     });
+    link.classList.add('active');
   });
+});
 
-  
