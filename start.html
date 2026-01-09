@@ -112,49 +112,68 @@
         return; // Stop further execution
       }
 
+      $("#login")[0].reset(); // Reset the form
 
-      // Make AJAX request
-      $.ajax({
-        type: 'POST',
-        url: "https://testing1-xpjd.onrender.com/api/auth/login",
-        data: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-        contentType: "application/json",
-        dataType: "json",
-        success: function (response) {
-          if (response.status === 'success') {
-            $("#login")[0].reset(); // Reset the form
-
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              text: "Login was successful",
-            }).then(function () {
-              // Store token in sessionStorage
-              sessionStorage.setItem('token', response.data.token);
-              sessionStorage.setItem('user_id', response.data.user.id);
-              sessionStorage.setItem('username', response.data.user.username);
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Login was successful",
+      }).then(function () {
+        // Store token in sessionStorage
+        // sessionStorage.setItem('token', response.data.token);
+        // sessionStorage.setItem('user_id', response.data.user.id);
+        // sessionStorage.setItem('username', response.data.user.username);
 
 
-              console.log("Token:", sessionStorage.getItem('token'));
-              console.log("User ID:", sessionStorage.getItem('user_id'));
+        // console.log("Token:", sessionStorage.getItem('token'));
+        // console.log("User ID:", sessionStorage.getItem('user_id'));
 
-              // Redirect to home page
-              window.location.href = "Pages/Home.html";
-            });
-          }
-        },
-        error: function (response) {
-          $('.signIn').attr('disabled', false);
-          const errorMessage = response.responseJSON?.message || "An error occurred. Please try again.";
-          $("#msg1").html(`<span class="alert alert-danger">${errorMessage}</span>`);
-          setTimeout(function () {
-            $("#msg1").html('');
-          }, 5000);
-        },
+        // Redirect to home page
+        window.location.href = "Pages/Home.html";
       });
+      // Make AJAX request
+      //   $.ajax({
+      //     type: 'POST',
+      //     url: "https://testing1-xpjd.onrender.com/api/auth/login",
+      //     data: JSON.stringify({
+      //       email: email,
+      //       password: password,
+      //     }),
+      //     contentType: "application/json",
+      //     dataType: "json",
+      //     success: function (response) {
+      //       if (response.status === 'success') {
+      //         $("#login")[0].reset(); // Reset the form
+
+      //         Swal.fire({
+      //           icon: "success",
+      //           title: "Success",
+      //           text: "Login was successful",
+      //         }).then(function () {
+      //           // Store token in sessionStorage
+      //           sessionStorage.setItem('token', response.data.token);
+      //           sessionStorage.setItem('user_id', response.data.user.id);
+      //           sessionStorage.setItem('username', response.data.user.username);
+
+
+      //           console.log("Token:", sessionStorage.getItem('token'));
+      //           console.log("User ID:", sessionStorage.getItem('user_id'));
+
+      //           // Redirect to home page
+      //           window.location.href = "Pages/Home.html";
+      //         });
+      //       }
+      //     },
+      //     error: function (response) {
+      //       $('.signIn').attr('disabled', false);
+      //       const errorMessage = response.responseJSON?.message || "An error occurred. Please try again.";
+      //       $("#msg1").html(`<span class="alert alert-danger">${errorMessage}</span>`);
+      //       setTimeout(function () {
+      //         $("#msg1").html('');
+      //       }, 5000);
+      //     },
+      //   });
+      // });
     });
 
   </script>
