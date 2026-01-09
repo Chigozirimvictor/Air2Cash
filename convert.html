@@ -127,8 +127,8 @@
           const amount = parseFloat($("#amount").val().trim());
           const senderPhone = $("#senderPhone").val().trim();
 
-          const token = sessionStorage.getItem("token"); // Retrieve token from session storage
-          const userId = sessionStorage.getItem("user_id"); // Retrieve user_id from session storage
+          // const token = sessionStorage.getItem("token"); // Retrieve token from session storage
+          // const userId = sessionStorage.getItem("user_id"); // Retrieve user_id from session storage
 
           // Validate inputs
           if (
@@ -146,52 +146,57 @@
             });
             return;
           }
-
-          // AJAX request
-          $.ajax({
-            type: "POST",
-            url: "https://testing1-xpjd.onrender.com/api/airtime/complete", // Backend endpoint
-            headers: {
-              Authorization: `Bearer ${token}`, // Include the token in the request headers
-            },
-            data: JSON.stringify({
-              user_id: userId, // Matches backend key
-              amount: amount, // Ensure amount is sent as a number
-              network: network,
-              Sender_phone: senderPhone, // Matches backend key
-              reciever_phone: receiverPhone, // Corrected spelling
-            }),
-            contentType: "application/json", // Specify content type as JSON
-            success: function (response) {
-              console.log("Response from server:", response);
-
-              if (response.status === "success") {
-                // Reset the form and show success alert
-                $("#convert")[0].reset();
-                Swal.fire({
-                  icon: "success",
-                  title: "Success",
-                  text: response.message,
-                });
-              } else {
-                // Display error message
-                $("#msg").html(
-                  `<span class="alert alert-danger">${response.message}</span>`
-                );
-                setTimeout(() => $("#msg").html(""), 5000);
-              }
-            },
-            error: function (response) {
-              console.error("Error from server:", response);
-              const errorMsg =
-                response.responseJSON?.error ||
-                "An error occurred. Please try again.";
-              $("#msg").html(
-                `<span class="alert alert-danger">${errorMsg}</span>`
-              );
-              setTimeout(() => $("#msg").html(""), 5000);
-            },
+          $("#convert")[0].reset();
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: response.message,
           });
+          // AJAX request
+          // $.ajax({
+          //   type: "POST",
+          //   url: "https://testing1-xpjd.onrender.com/api/airtime/complete", // Backend endpoint
+          //   headers: {
+          //     Authorization: `Bearer ${token}`, // Include the token in the request headers
+          //   },
+          //   data: JSON.stringify({
+          //     user_id: userId, // Matches backend key
+          //     amount: amount, // Ensure amount is sent as a number
+          //     network: network,
+          //     Sender_phone: senderPhone, // Matches backend key
+          //     reciever_phone: receiverPhone, // Corrected spelling
+          //   }),
+          //   contentType: "application/json", // Specify content type as JSON
+          //   success: function (response) {
+          //     console.log("Response from server:", response);
+
+          //     if (response.status === "success") {
+          //       // Reset the form and show success alert
+          //       $("#convert")[0].reset();
+          //       Swal.fire({
+          //         icon: "success",
+          //         title: "Success",
+          //         text: response.message,
+          //       });
+          //     } else {
+          //       // Display error message
+          //       $("#msg").html(
+          //         `<span class="alert alert-danger">${response.message}</span>`
+          //       );
+          //       setTimeout(() => $("#msg").html(""), 5000);
+          //     }
+          //   },
+          //   error: function (response) {
+          //     console.error("Error from server:", response);
+          //     const errorMsg =
+          //       response.responseJSON?.error ||
+          //       "An error occurred. Please try again.";
+          //     $("#msg").html(
+          //       `<span class="alert alert-danger">${errorMsg}</span>`
+          //     );
+          //     setTimeout(() => $("#msg").html(""), 5000);
+          //   },
+          // });
         });
       });
     </script>

@@ -105,33 +105,33 @@ function save (reference, amount) {
     )
     return
   }
-
-  $.ajax({
-    url: 'https://testing1-xpjd.onrender.com/api/deposits/',
-    type: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}` // Add Authorization header with Bearer token
-    },
-    data: {
-      userId: id,
-      reference: reference,
-      amount: amount
-    },
-    success: function (data) {
-      if (data.status === 'success') {
-        showSweetAlert('Funding successful!', true)
-        // Additional logic if needed after successful payment
-      } else {
-        console.error('Error response from server:', data)
-        showSweetAlert(
-          data.message || 'Funding failed. Please try again.',
-          false
-        )
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error('Error processing payment:', error)
-      showSweetAlert('An error occurred during the transaction', false)
-    }
-  })
+  showSweetAlert('Funding successful!', true)
+  // $.ajax({
+  //   url: 'https://testing1-xpjd.onrender.com/api/deposits/',
+  //   type: 'POST',
+  //   headers: {
+  //     Authorization: `Bearer ${token}` // Add Authorization header with Bearer token
+  //   },
+  //   data: {
+  //     userId: id,
+  //     reference: reference,
+  //     amount: amount
+  //   },
+  //   success: function (data) {
+  //     if (data.status === 'success') {
+  //       showSweetAlert('Funding successful!', true)
+  //       // Additional logic if needed after successful payment
+  //     } else {
+  //       console.error('Error response from server:', data)
+  //       showSweetAlert(
+  //         data.message || 'Funding failed. Please try again.',
+  //         false
+  //       )
+  //     }
+  //   },
+  //   error: function (xhr, status, error) {
+  //     console.error('Error processing payment:', error)
+  //     showSweetAlert('An error occurred during the transaction', false)
+  //   }
+  // })
 }
