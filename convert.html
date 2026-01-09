@@ -131,21 +131,21 @@
           // const userId = sessionStorage.getItem("user_id"); // Retrieve user_id from session storage
 
           // Validate inputs
-          if (
-            !network ||
-            !receiverPhone ||
-            !amount ||
-            !senderPhone ||
-            !token ||
-            !userId
-          ) {
-            Swal.fire({
-              icon: "error",
-              title: "Missing Fields",
-              text: "Please fill out all required fields.",
-            });
-            return;
-          }
+          // if (
+          //   !network ||
+          //   !receiverPhone ||
+          //   !amount ||
+          //   !senderPhone ||
+          //   !token ||
+          //   !userId
+          // ) {
+          //   Swal.fire({
+          //     icon: "error",
+          //     title: "Missing Fields",
+          //     text: "Please fill out all required fields.",
+          //   });
+          //   return;
+          // }
           $("#convert")[0].reset();
           Swal.fire({
             icon: "success",
