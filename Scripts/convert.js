@@ -1,54 +1,59 @@
 const initializeAirtime = async (event, network) => {
     event.preventDefault();
-    const token = sessionStorage.getItem("token");
+    // const token = sessionStorage.getItem("token");
 
-    if (!token) {
-        console.error("Token is missing");
-        Swal.fire({
-            icon: "error",
-            title: "Authentication Error",
-            text: "User token is missing. Please log in again.",
-        });
-        return;
-    }
+    // if (!token) {
+    //     console.error("Token is missing");
+    //     Swal.fire({
+    //         icon: "error",
+    //         title: "Authentication Error",
+    //         text: "User token is missing. Please log in again.",
+    //     });
+    //     return;
+    // }
+    Swal.fire({
+        icon: "success",
+        title: "Success",
+        // text: data.message,
+    });
 
-    try {
-        const response = await fetch("https://testing1-xpjd.onrender.com/api/airtime/initialize", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ network }),
-        });
+    // try {
+    //     const response = await fetch("https://testing1-xpjd.onrender.com/api/airtime/initialize", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Authorization: `Bearer ${token}`,
+    //         },
+    //         body: JSON.stringify({ network }),
+    //     });
 
-        const data = await response.json();
+    //     const data = await response.json();
 
-        if (response.ok && data.status === "success") {
-            Swal.fire({
-                icon: "success",
-                title: "Success",
-                text: data.message,
-            });
-            document.getElementById("msg").innerHTML = data.phone;
-            document.getElementById("receiverPhone").value = data.phone;
-            document.getElementById("network").value = network;
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: data.message.message || "An unexpected error occurred.",
-            });
-            console.error("Unexpected response:", data);
-        }
-    } catch (error) {
-        console.error("Fetch Error:", error);
-        Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: "Failed to process the request. Please try again later.",
-        });
-    }
+    //     if (response.ok && data.status === "success") {
+    //         Swal.fire({
+    //             icon: "success",
+    //             title: "Success",
+    //             text: data.message,
+    //         });
+    //         document.getElementById("msg").innerHTML = data.phone;
+    //         document.getElementById("receiverPhone").value = data.phone;
+    //         document.getElementById("network").value = network;
+    //     } else {
+    //         Swal.fire({
+    //             icon: "error",
+    //             title: "Error",
+    //             text: data.message.message || "An unexpected error occurred.",
+    //         });
+    //         console.error("Unexpected response:", data);
+    //     }
+    // } catch (error) {
+    //     console.error("Fetch Error:", error);
+    //     Swal.fire({
+    //         icon: "error",
+    //         title: "Error",
+    //         text: "Failed to process the request. Please try again later.",
+    //     });
+    // }
 };
 
 // Event handlers for specific networks
@@ -74,10 +79,10 @@ const animateDiv = document.querySelector('.form-input');
 console.log("its working")
 
 const animateScroll = () => {
-  const rect = animateDiv.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom >= 0) {
-    animateDiv.classList.add('in-view');
-  }
+    const rect = animateDiv.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        animateDiv.classList.add('in-view');
+    }
 };
 
 window.addEventListener('scroll', animateScroll);
